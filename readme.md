@@ -1,6 +1,6 @@
 ### REQUETE SQL :
 
--  ```sql 
+```sql 
 
 SELECT title_movie, publish_date_movie
 FROM movie
@@ -9,7 +9,7 @@ ORDER BY publish_date_movie DESC;
 ``` 
 
 
-- ```sql 
+```sql 
 
 SELECT firstname_actor, lastname_actor, 
     TIMESTAMPDIFF(YEAR, BOD_actor, CURDATE()) AS age
@@ -21,7 +21,7 @@ ORDER BY lastname_actor, firstname_actor;
 
 
 
-- ```sql 
+```sql 
 
 SELECT a.firstname_actor, a.lastname_actor
 FROM actor AS a
@@ -31,7 +31,7 @@ WHERE m.title_movie = 'Avatar';
 
  ```
 
- - ```sql 
+```sql 
  
  SELECT DISTINCT m.title_movie
 FROM movie AS m
@@ -42,7 +42,7 @@ WHERE a.firstname_actor = 'Brad' AND a.lastname_actor = 'Pitt';
  
  ```
 
- - ```sql
+```sql
 
 INSERT INTO movie (title_movie, duration_movie, publish_date_movie, filmmaker_movie, id_filmmaker)
 VALUES ('New Movie Title', 120, '2023-10-15', 'Director Name', 1);
@@ -52,7 +52,7 @@ VALUES ('New Movie Title', 120, '2023-10-15', 'Director Name', 1);
 
 
 
- - ```sql
+```sql
  
 INSERT INTO actor (firstname_actor, lastname_actor, BOD_actor)
 VALUES ('New First Name', 'New Last Name', 'YYYY-MM-DD');
@@ -61,7 +61,7 @@ VALUES ('New First Name', 'New Last Name', 'YYYY-MM-DD');
  ```
 
 
- - ```sql
+```sql
 
 UPDATE movie
 SET
@@ -74,7 +74,7 @@ WHERE title_movie = 'X movie';
 
  ```
 
- - ```sql
+```sql
  
 DELETE FROM actor
 WHERE id_actor = X;
@@ -83,7 +83,7 @@ WHERE id_actor = X;
  ```
 
 
- -```sql
+```sql
  
 SELECT firstname_actor, lastname_actor
 FROM actor
@@ -94,7 +94,7 @@ LIMIT 3;
 
 
  ### Procédure stocké :
-
+```sql
 
  DELIMITER //
 
@@ -107,10 +107,11 @@ END;
 //
 
 DELIMITER ;
+```
 
 - L'appel :
-
+```sql
 CALL GetMoviesByFilmmaker('Director Name');
 
-
+```
 
