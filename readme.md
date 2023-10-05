@@ -69,7 +69,7 @@ SET
     duration_movie = 130,
     publish_date_movie = '2023-10-20',
     filmmaker_movie = 'New Director Name'
-WHERE title_movie = 'X movie';
+WHERE title_movie = 'Pulp Fiction';
 
 
  ```
@@ -77,7 +77,7 @@ WHERE title_movie = 'X movie';
 ```sql
  
 DELETE FROM actor
-WHERE id_actor = X;
+WHERE id_actor = 3;
 
  
  ```
