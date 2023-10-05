@@ -115,3 +115,52 @@ CALL GetMoviesByFilmmaker('Director Name');
 
 ```
 
+### Trigger :
+
+- Création de la table archive : 
+
+```sql
+CREATE TABLE user_archive (
+    id_user_archive INT AUTO_INCREMENT PRIMARY KEY,
+    id_user INT,
+    change_date TIMESTAMP,
+    old_firstname VARCHAR(100),
+    old_lastname VARCHAR(100),
+    old_role VARCHAR(50),
+    old_email_address VARCHAR(100),
+    new_firstname VARCHAR(100),
+    new_lastname VARCHAR(100),
+    new_role VARCHAR(50),
+    new_email_address VARCHAR(100)
+);
+
+```
+
+- Création du trigger :
+
+```sql
+DELIMITER //
+
+CREATE TRIGGER user_archive_trigger
+AFTER UPDATE ON user
+FOR EACH ROW
+BEGIN
+    INSERT INTO user_archive (id_user, change_date, old_firstname, old_lastname, old_role, old_email_address, new_firstname, new_lastname, new_role, new_email_address)
+    VALUES (
+        OLD.id_user,
+        NOW(),
+        OLD.firstname_user,
+        OLD.lastname_user,
+        OLD.role_user,
+        OLD.email_address_user,
+        NEW.firstname_user,
+        NEW.lastname_user,
+        NEW.role_user,
+        NEW.email_address_user
+    );
+END;
+//
+
+DELIMITER ;
+
+```
