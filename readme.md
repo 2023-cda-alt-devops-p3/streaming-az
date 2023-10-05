@@ -27,7 +27,7 @@ SELECT a.firstname_actor, a.lastname_actor
 FROM actor AS a
 JOIN role AS r ON a.id_actor = r.id_actor
 JOIN movie AS m ON r.id_movie = m.id_movie
-WHERE m.title_movie = 'Avatar';
+WHERE m.title_movie = 'Avatar' AND r.role_principale = 1;
 
  ```
 
