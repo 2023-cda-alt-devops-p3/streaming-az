@@ -111,7 +111,7 @@ DELIMITER ;
 
 - L'appel :
 ```sql
-CALL GetMoviesByFilmmaker('Director Name');
+CALL GetMoviesByFilmmaker('James Cameron');
 
 ```
 
